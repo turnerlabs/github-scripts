@@ -1,29 +1,30 @@
 # Simple Scripts for Github Tasks
 
-1. get-repos
+### get-repos
+
 - prints out all repos in an organization
 
-```
+``` shell
 ./get-repos turnerlabs
 ```
 
-2. check-license
+### check-license
 - checks to see if repos have a license
 
-```
+``` shell
 ./get-repos turnerlabs | ./check-license
 ```
 
-3. clone-repo
+### clone-repo
 - clone repo into tmp directory
 
-```
+``` shell
 ./get-repos turnerlabs | ./check-license | ./clone-repo
 ```
 
-4. add-licenses
+### add-licenses
 - add the appropriate license to each repo, push commit, open PR window
 
-```
+``` shell
 ./add-licenses $(pwd)/LICENSE
 ```
