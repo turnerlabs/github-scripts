@@ -1,0 +1,11 @@
+#!/bin/bash
+
+GIT="https://raw.githubusercontent.com"
+while read a; do
+    # something with "$a"
+    code=$(curl -s -o /dev/null -w "%{http_code}" ${GIT}/${a}/master/LICENSE)
+    if [ "${code}" == 404 ]; then
+        echo "$a"
+    fi
+done
+

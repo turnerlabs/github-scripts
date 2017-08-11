@@ -1,0 +1,19 @@
+#!/bin/bash
+
+if [ -z "${1}" ]; then
+   echo "must pass in organization"
+   exit 1
+fi
+page=1
+PER_PAGE=50
+while true; do
+  repos=$(curl -s "https://api.github.com/users/${1}/repos?per_page=${PER_PAGE}&page=${page}")
+  page_length=$(echo "${repos}" | jq '. | length')
+  if [ "${page_length}" != "0" ]; then
+    echo "$(echo ${repos} | jq -r .[].full_name)"
+  else
+    exit 1
+  fi
+  ((page++))
+  sleep 1
+done

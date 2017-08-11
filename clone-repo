@@ -1,0 +1,9 @@
+#!/bin/bash
+
+GIT="git@github.com"
+while read a; do
+    # clone repo
+    echo "${GIT}:${a}.git"
+    git clone "${GIT}:${a}.git" "/tmp/${a}"
+done
+
