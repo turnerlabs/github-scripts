@@ -12,7 +12,7 @@ while true; do
   if [ "${page_length}" != "0" ]; then
     echo "$(echo ${repos} | jq -r .[].full_name)"
   else
-    exit 1
+    exit 0
   fi
   ((page++))
   sleep 1
